@@ -2,13 +2,14 @@ import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contactsSlice';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
 import { Form, Field, Input, SubmitButton } from './ContactForm.styled';
 
 const checkContactName = (name, contacts) =>
   contacts.some(el => el.name === name);
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(getContacts);
   const handleSubmit = evt => {
     evt.preventDefault();
     const data = evt.currentTarget.elements;

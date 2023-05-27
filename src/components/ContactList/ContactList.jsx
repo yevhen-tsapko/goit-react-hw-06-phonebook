@@ -11,7 +11,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const filterValue = useSelector(getFilter);
-  console.log('contacts', contacts, 'filterValue', filterValue);
+  console.log('contacts', contacts);
   const contactsList = filterValue
     ? filterContacts(contacts, filterValue)
     : contacts;
